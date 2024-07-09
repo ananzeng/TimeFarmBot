@@ -69,7 +69,7 @@ class Claimer:
 
     async def login(self, http_client: aiohttp.ClientSession, tg_web_data: dict[str]) -> dict[str]:
         try:
-            response = await http_client.post(url='https://tg-bot-tap.laborx.io/api/v1/auth/validate-init', data=tg_web_data)
+            response = await http_client.post(url='https://tg-bot-tap.laborx.io/api/v1/auth/validate-init/v2', data={"initData":tg_web_data,"platform":"android"})
             response.raise_for_status()
 
             response_json = await response.json()
